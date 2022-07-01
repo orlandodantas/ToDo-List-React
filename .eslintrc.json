@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "plugin:react/jsx-runtime": "extends",
+
+    // Trybe
+    "no-underscore-dangle": "off",
+    "no-console": "off",
+    "camelcase": "warn",
+    "arrow-parens": [2, "always"],
+    "quotes": [2, "single"],
+    "implicit-arrow-linebreak": "off",
+    "consistent-return": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "object-curly-newline": "off",
+    "import/no-extraneous-dependencies": ["off"]
+  }
+}
