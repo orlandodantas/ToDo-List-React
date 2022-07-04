@@ -13,7 +13,14 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "plugin:react/jsx-runtime": "extends",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
 
     // Trybe
     "no-underscore-dangle": "off",
