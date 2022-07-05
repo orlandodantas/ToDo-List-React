@@ -1,11 +1,10 @@
 import axios from 'axios';
-import 'dotenv/config';
 import { getToken } from './auth';
 
-const { URL_API, PORT_API } = process.env;
+const { VITE_URL_API, VITE_PORT_API } = import.meta.env;
 
 const api = axios.create({
-  baseURL: `${URL_API}:${PORT_API}` || 'http://localhost:3001',
+  baseURL: `${VITE_URL_API}:${VITE_PORT_API}` || 'http://localhost:3001',
 });
 
 api.interceptors.request.use(async (config) => {
