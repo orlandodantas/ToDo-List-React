@@ -1,8 +1,11 @@
 import axios from 'axios';
+import 'dotenv/config';
 import { getToken } from './auth';
 
+const { URL_API, PORT_API } = process.env;
+
 const api = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: `${URL_API}:${PORT_API}` || 'http://localhost:3001',
 });
 
 api.interceptors.request.use(async (config) => {
