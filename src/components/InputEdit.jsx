@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { MdModeEditOutline } from 'react-icons/md';
 
 const InputEdit = ({ type, name, placeholder, className, value, onChange, children }) => (
-  <div className="relative">
+  <div className="relative w-full">
     <input
       className={`pr-3 pl-8 ${className}`}
       type={type}
