@@ -19,3 +19,31 @@ code {
 * {
   box-sizing: border-box;
 }
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #CCCCCC;
+}
+/* *::-webkit-scrollbar-button {
+  border: 1px #FF0000 dashed;
+} */
+*::-webkit-scrollbar-track {
+  background: #CCCCCC;
+}
+*::-webkit-scrollbar-track-piece {
+  background: #810074;
+}
+*::-webkit-scrollbar-thumb {
+  background: #4b008d;
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-corner {
+  background: #FF0000;
+  border-radius: 5px;
+}
+/* * textarea::-webkit-resizer {
+  border: 1px #FF0000 dashed;
+} */
+
+/* Credits: https://www.eversondaluz.com.br/como-personalizar-a-barra-de-rolagem */

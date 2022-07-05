@@ -1,28 +1,29 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
+import Button from './button';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: 'orange',
+    // width: '95%',
+  },
+  overlay: {
+    backgroundColor: 'rgba(100, 40, 255, 0.75)',
+  },
+};
 
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root');
 
-const AlertModal = ({ execCloseModal, title, message, backgroundColor }) => {
+const GenericModal = ({ execCloseModal, children, textButton }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-
-  const customStyles = {
-    content: {
-      top: '10%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      backgroundColor,
-      width: '95%',
-    },
-    overlay: {
-      backgroundColor: 'rgba(25, 0, 255, 0.75)',
-    },
-  };
 
   const openModal = () => {
     setIsOpen(true);
@@ -44,23 +45,21 @@ const AlertModal = ({ execCloseModal, title, message, backgroundColor }) => {
         style={customStyles}
         contentLabel="Alert Modal"
       >
-        <h2 className="font-bold text-xl text-white">{title}</h2>
-        <p className="text-white">{message}</p>
+        {children}
+        <Button text={textButton} onClick={closeModal} />
       </Modal>
     </div>
   );
 };
 
-AlertModal.propTypes = {
+GenericModal.propTypes = {
   execCloseModal: PropTypes.func.isRequired,
-  message: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  backgroundColor: PropTypes.string,
+  children: PropTypes.element.isRequired,
+  textButton: PropTypes.string,
 };
 
-AlertModal.defaultProps = {
-  title: 'Error',
-  backgroundColor: 'red',
+GenericModal.defaultProps = {
+  textButton: 'Não',
 };
 
-export default AlertModal;
+export default GenericModal;
