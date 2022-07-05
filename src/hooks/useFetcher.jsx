@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import api from '../services/api';
 
 const useFetcher = (url) => {
-  const { data, error } = useSWR(url, async (urlAPI) => {
+  const { data, error, mutate } = useSWR(url, async (urlAPI) => {
     const response = await api.get(urlAPI);
 
     return response.data;
@@ -12,6 +12,7 @@ const useFetcher = (url) => {
     isLoading: !data && !error,
     data,
     error,
+    mutate,
   };
 };
 
