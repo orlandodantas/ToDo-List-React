@@ -4,6 +4,7 @@ import { MdOutlineAddCircle } from 'react-icons/md';
 import { Navigate, useNavigate } from 'react-router-dom';
 import AlertModal from '../components/AlertModal';
 import Button from '../components/button';
+import Header from '../components/Header';
 import InputEdit from '../components/InputEdit';
 import ListItemTask from '../components/ListItemTask';
 import OrderTask from '../components/OrderTask';
@@ -107,46 +108,50 @@ const Tasks = () => {
   };
 
   return (
-    <main className="bg-gradient-to-r from-indigo-900 via-purple-500 to-pink-500 min-h-screen flex justify-center items-center">
-      <div className="h-96 flex flex-col justify-between w-96 px-4 py-5 rounded-2xl bg-fuchsia-900 shadow-2xl gap-4 resize overflow-auto">
-        {data && <ListItemTask listTasks={data} editTask={editTask} deleteTask={deleteTask} />}
-        {!data && <div> </div>}
+    <div className="bg-gradient-to-r from-indigo-900 via-purple-500 to-pink-500 min-h-screen">
+      <Header />
 
-        <div className="flex justify-around items-center gap-3">
-          <InputEdit type="text" name="task" placeholder="Tarefa" value={task} onChange={setTask}>
-            <Button image={<FaTasks />} className="" onClick={() => setOpenModalOrder(true)} />
-          </InputEdit>
+      <main className="flex justify-center items-center mt-10">
+        <div className="h-96 flex flex-col justify-between w-96 px-4 py-5 rounded-2xl bg-fuchsia-900 shadow-2xl gap-4 resize overflow-auto">
+          {data && <ListItemTask listTasks={data} editTask={editTask} deleteTask={deleteTask} />}
+          {!data && <div> </div>}
 
-          <Button
-            image={<MdOutlineAddCircle size={36} color="rgb(147 51 234)" />}
-            className="border-2 rounded-full border-purple-400 hover:border-purple-600 active:border-purple-800 active:cursor-progress transition duration-200 ease-in-out"
-            onClick={createTask}
-          />
+          <div className="flex justify-around items-center gap-3">
+            <InputEdit type="text" name="task" placeholder="Tarefa" value={task} onChange={setTask}>
+              <Button image={<FaTasks />} className="" onClick={() => setOpenModalOrder(true)} />
+            </InputEdit>
+
+            <Button
+              image={<MdOutlineAddCircle size={36} color="rgb(147 51 234)" />}
+              className="border-2 rounded-full border-purple-400 hover:border-purple-600 active:border-purple-800 active:cursor-progress transition duration-200 ease-in-out"
+              onClick={createTask}
+            />
+          </div>
         </div>
-      </div>
-      {errorMessage && <AlertModal execCloseModal={clearMessage} message={errorMessage} />}
+        {errorMessage && <AlertModal execCloseModal={clearMessage} message={errorMessage} />}
 
-      {successMessage && (
-        <AlertModal
-          execCloseModal={clearMessage}
-          message={successMessage}
-          title="Sucesso!"
-          backgroundColor="green"
-        />
-      )}
+        {successMessage && (
+          <AlertModal
+            execCloseModal={clearMessage}
+            message={successMessage}
+            title="Sucesso!"
+            backgroundColor="green"
+          />
+        )}
 
-      {openMOdalOrder && (
-        <OrderTask
-          execCloseModal={disableOpenOrder}
-          setOrder={setOrder}
-          order={order}
-          successMessage={setSuccessMessage}
-        />
-      )}
+        {openMOdalOrder && (
+          <OrderTask
+            execCloseModal={disableOpenOrder}
+            setOrder={setOrder}
+            order={order}
+            successMessage={setSuccessMessage}
+          />
+        )}
 
-      {error && <AlertModal execCloseModal={() => {}} message={error.response.data.message} /> &&
-        error.response.status === 401 && <Navigate to="/" />}
-    </main>
+        {error && <AlertModal execCloseModal={() => {}} message={error.response.data.message} /> &&
+          error.response.status === 401 && <Navigate to="/" />}
+      </main>
+    </div>
   );
 };
 
