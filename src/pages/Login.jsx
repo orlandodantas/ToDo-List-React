@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import AlertModal from '../components/AlertModal';
 import Button from '../components/button';
 import InputEdit from '../components/InputEdit';
+import SignUp from '../components/SignUp';
 import api from '../services/api';
 import { setToken } from '../services/auth';
 
@@ -13,6 +14,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isSignUp, setIsSignUp] = useState(false);
 
   const authToDo = async () => {
     try {
@@ -28,6 +30,10 @@ const Login = () => {
     } catch ({ response }) {
       setErrorMessage(response.data.message);
     }
+  };
+
+  const handleIsSignUp = () => {
+    setIsSignUp((prevState) => !prevState);
   };
 
   const clearError = () => {
@@ -54,8 +60,14 @@ const Login = () => {
         </InputEdit>
 
         <Button text="Entrar" onClick={authToDo} />
+        <Button
+          className="font-bold text-white hover:text-pink-200"
+          text="Cadastre-se"
+          onClick={handleIsSignUp}
+        />
 
         {errorMessage && <AlertModal execCloseModal={clearError} message={errorMessage} />}
+        {isSignUp && <SignUp execCloseModal={handleIsSignUp} />}
       </form>
     </main>
   );
