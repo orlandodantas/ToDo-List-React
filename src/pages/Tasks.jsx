@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { FaTasks } from 'react-icons/fa';
 import { MdOutlineAddCircle } from 'react-icons/md';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { Loader } from 'semantic-ui-react';
+import { Dimmer, Loader, Segment } from 'semantic-ui-react';
 import AlertModal from '../components/AlertModal';
 import Button from '../components/button';
 import Header from '../components/Header';
@@ -42,9 +42,11 @@ const Tasks = () => {
 
   if (isLoading) {
     return (
-      <Loader active inline="centered">
-        Loading...
-      </Loader>
+      <Segment>
+        <Dimmer active>
+          <Loader size="large">Loading...</Loader>
+        </Dimmer>
+      </Segment>
     );
   }
 
