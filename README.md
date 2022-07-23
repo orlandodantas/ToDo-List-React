@@ -10,11 +10,15 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
+:small_blue_diamond: [Deploy da Aplicação](#layout-e-deploy-da-aplicação-dash)
 
 :small_blue_diamond: [Pré-requisitos](#pré-requisitos)
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
+
+:small_blue_diamond: [Dependências e Libs](#linguagens-dependencias-e-libs-utilizadas-books)
+
+:small_blue_diamond: [Licença](#licença)
 
 ## Descrição do projeto 
 
@@ -37,9 +41,9 @@
 
 :heavy_check_mark: Cadastrar tarefas
 
-:heavy_check_mark: Editar descrição da tarefas
+:heavy_check_mark: Editar descrição da tarefa
 
-:heavy_check_mark: editar o status da tarefas
+:heavy_check_mark: Editar o status da tarefa
 
 :heavy_check_mark: Excluir tarefa
 
@@ -94,7 +98,7 @@ mv .env.exemple .env
 rename .env.exemple .env
 ```
 > :warning: Atenção caso necessário modifique o endereço e a porta da aplicação [Back-End](https://github.com/orlandodantas/ToDo-List-API)
-no arquivo que acabou de editar.
+no arquivo que acabou de renomear.
 
 Execute a aplicação:
 
