@@ -17,7 +17,7 @@ const RoutesPage = () => (
   <Routes>
     <Route path="/" element={<Login />} />
     <Route
-      path="tasks"
+      path="/tasks"
       element={
         <PrivateRoute redirectTo="/">
           <Tasks />
