@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 import Tasks from './pages/Tasks';
 
 import { isAuthenticated } from './services/auth';
@@ -24,6 +25,7 @@ const RoutesPage = () => (
         </PrivateRoute>
       }
     />
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );
 
