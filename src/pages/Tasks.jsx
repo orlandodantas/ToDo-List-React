@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { FaTasks } from 'react-icons/fa';
 import { MdOutlineAddCircle } from 'react-icons/md';
+import ReactLoading from 'react-loading';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { Dimmer, Loader, Segment } from 'semantic-ui-react';
 import AlertModal from '../components/AlertModal';
 import Button from '../components/button';
 import Header from '../components/Header';
@@ -41,13 +41,7 @@ const Tasks = () => {
   }, [data, order]);
 
   if (isLoading) {
-    return (
-      <Segment>
-        <Dimmer active>
-          <Loader size="large">Loading...</Loader>
-        </Dimmer>
-      </Segment>
-    );
+    return <ReactLoading type="SpinningBubbles" color="white" height={667} width={375} />;
   }
 
   const createTask = async () => {
