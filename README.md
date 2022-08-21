@@ -109,7 +109,7 @@ npm run dev
 > :warning: Atenção para que a aplicação funcione por completo é preciso está rodando a aplicação back-end que pode ser implantada seguindo
 os passos da aplicação [Back-End](https://github.com/orlandodantas/ToDo-List-API).
 
-## Linguagens, dependencias e libs utilizadas :books:
+## Linguagens, dependências e libs utilizadas :books:
 
 - [React](https://pt-br.reactjs.org/docs/create-a-new-react-app.html)
 - [React Router Dom](https://reactrouter.com/docs/en/v6/getting-started/overview)
